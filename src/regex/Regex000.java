@@ -1,8 +1,5 @@
 package regex;
 
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
-
 /*
 Napisz Regex,
 który dopasowuje ciąg znaków, w którym po 'p' występuje
@@ -14,23 +11,15 @@ pqqqqqqq
 
  */
 public class Regex000 {
-    private static final Pattern pattern = Pattern.compile("pq*");
 
     public static void main(String[] args) {
-        validate("p");
-        validate("pq");
-        validate("pqqqq");
-        validate("pqqqqrrrrr");
-        validate("qqqqq");
-        validate("asdfsadf");
+        RegexTester tester = new RegexTester("pq*");
+        tester.validate("p");
+        tester.validate("pq");
+        tester.validate("pqqqq");
+        tester.validate("pqqqqrrrrr");
+        tester.validate("qqqqq");
+        tester.validate("asdfsadf");
     }
 
-    private static void validate(String text) {
-        Matcher matcher = pattern.matcher(text);
-        if (matcher.matches()) {
-            System.out.println("Prawda dla tekstu: " + text);
-        } else {
-            System.out.println("Fałsz dla tekstu: " + text);
-        }
-    }
 }
